@@ -1,8 +1,179 @@
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Nunito:wght@400;600&display=swap');
+
+*{
+  padding: 0;
+  margin: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: inherit;
+}
+.home-container {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+}
+
+.top-section {
+  position: relative;
+  width: 100vw;
+  flex: 0 1 470px;
+  background-image: linear-gradient(45deg, #FDAF75, #F24A72);
+
+}
+
+.bottom-section {
+  position: relative;
+  width: 100vw;
+  flex: 1 1 auto;
+  background-color: rgb(233, 233, 233);
+  z-index: 20;
+  padding-bottom: 150px;
+}
+
+.home-name-title {
+  position: absolute;
+  font-family: 'Roboto Mono';
+}
+
+.first-name {
+  bottom: 10px;
+  left: 20px;
+  font-size: 80px;
+}
+
+.second-name {
+  top: 10px;
+  left: 20px;
+  font-size: 80px;
+}
+
+.subtext {
+  right: 20px;
+  bottom: 10px;
+  font-size: 40px;
+  z-index: 12;
+}
+
+.circle {
+  border-radius: 50%;
+  position: fixed;
+}
+
+#big-circle {
+  width: 900px;
+  height: 900px;
+  background: pink;
+  margin-top: 35vh;
+  right: -15vw;
+  z-index: 10;
+}
+
+#medium-circle {
+  width: 400px;
+  height: 400px;
+  background: lightgrey;
+  margin-top: 30vh;
+  right: 10vw;
+  z-index: 11;
+}
+
+#small-circle {
+  width: 200px;
+  height: 200px;
+  background: #333C83;
+  margin-top: 30vh;
+  right: 5vw;
+  z-index: 8;
+}
+
+.button-section {
+  width: 200px;
+  padding: 15px;
+  margin-right: 35px;
+  float: right;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.icon {
+  font-size: 30px;
+}
+
+.icon:hover {
+  cursor: pointer;
+}
+
+.dark-section {
+  height: 100vh;
+  padding: 20px;
+  margin-top: 400px;
+  color: white;
+}
+
+/*Terminal*/
+.terminal-container {
+  border: 2px solid white;
+  width: 750px;
+  height: 450px;
+  margin-left: 50px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.terminal-header {
+  flex: 1;
+  background-color: whitesmoke;
+}
+
+.dot {
+  height: 20px;
+  width: 20px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dots-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 90px;
+  float: right;
+  padding: 5px;
+}
+
+.terminal-content{
+  height: 100%;
+  padding: 10px;
+  font-family: 'Cutive Mono';
+}
+
+.sidebar{
+  width: 100px;
+  height: 100%;
+  background-color: rgb(228, 228, 228);
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  justify-content: space-between;
+}
+
+.text-item{
+  height: 15px;
+  border-radius: 20px;
+  background-color: grey;
 }
