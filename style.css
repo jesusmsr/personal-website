@@ -48,6 +48,11 @@ a, a:hover, a:focus, a:active {
   font-family: 'Roboto Mono';
 }
 
+.about-section-title {
+  font-family: 'Roboto Mono';
+
+}
+
 .first-name {
   bottom: 10px;
   left: 20px;

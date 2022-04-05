@@ -1,10 +1,14 @@
 import './style.css'
 import $ from 'jquery';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 $(document).ready(function () {
 
   var scroll_pos = 0;
   var fadeRatio = 0.4;
+
+  AOS.init();
 
   window.addEventListener("scroll", function (e) {
     //Fade on scroll
