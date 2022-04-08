@@ -2,6 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Nunito:wght@400;600&display=swap');
 
+
+
 * {
   padding: 0;
   margin: 0;
@@ -15,7 +17,10 @@ body {
   overflow-x: hidden;
 }
 
-a, a:hover, a:focus, a:active {
+a,
+a:hover,
+a:focus,
+a:active {
   text-decoration: none;
   color: inherit;
 }
@@ -182,4 +187,21 @@ a, a:hover, a:focus, a:active {
   height: 15px;
   border-radius: 20px;
   background-color: grey;
+}
+
+@media (min-width:320px) {
+  .first-name {
+    font-size: 50px;
+    z-index: 50;
+  }
+
+  .second-name {
+    font-size: 50px;
+  }
+
+  .subtext {
+    transform: rotate(-90deg);
+    right: -130px;
+    bottom: 150px;
+  }
 }
