@@ -2,7 +2,6 @@ import './style.css'
 import $ from 'jquery';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import 'animate.css';
 
 $(document).ready(function () {
 
