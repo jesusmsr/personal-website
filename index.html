@@ -9,66 +9,81 @@
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
+    <link rel="stylesheet"
+        href="./style.css">
+    <link rel="stylesheet"
+        href="./node_modules/aos/dist/aos.css">
 </head>
 
 <body>
     <div id="app">
-        <div class="home-container">
-
-            <div class="top-section">
-                <div id="big-circle"
-                    class="circle scroll"
-                    data-rate="-0.5"></div>
-                <div class="circle scroll"
-                    id="medium-circle"
-                    data-rate="-0.7"></div>
-                <div class="circle scroll"
-                    id="small-circle"
-                    data-rate="-1"></div>
-                <h1 class="home-name-title first-name">Jesús Sánchez</h1>
-                <h3 class="home-name-title subtext">Web developer</h3>
+        <div class="main-container">
+            <span class="name-title">JESUS</span>
+            <span class="sub-title">Web developer</span>
+            <div class="dot-line-container">
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
             </div>
-            <div class="bottom-section">
-                <h1 class="home-name-title second-name">Rodríguez</h1>
-                <div class="button-section">
-                    <a target="new"
-                        href="https://github.com/jesusmsr"><i class="fa-brands fa-github icon"></i></a>
-                    <a target="new"
-                        href="https://www.linkedin.com/in/jesus-sanchez-213a5a210/"><i class="fa-brands fa-linkedin icon"></i></a>
-                    <i class="fa-solid fa-at icon"></i>
-                </div>
-                <div class="dark-section">
-                    <h1 data-aos="fade-right"
-                        data-aos-offset="400"
-                        class="about-section-title">About me</h1>
-
-
-                    <div class="terminal-container"
-                        data-aos="fade-left"
-                        data-aos-offset="400">
-                        <div class="terminal-header">
-                            <div class="dots-container">
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                                <span class="dot"></span>
-                            </div>
-                        </div>
-                        <div class="terminal-content">
-                            <p>> I'm a 22 year old web developer.</p>
-                            <p>> I have over one year of experience working with Angular and Spring.</p>
-                            <p>> Familiar with Agile methodology.</p>
-                            <p>> Passionate about what I do and always trying to learn new things and improve.</p>
-                            <p>> Apart from web development, I like to code in general and experiment with other technologies. I'm a big fan of raspberry pi and IoT.</p>
-                        </div>
-                    </div>
-
-                </div>
+            <div class="icon-container">
+                <i class="fa-brands fa-linkedin"></i>
+                <i class="fa-brands fa-github"></i>
+                <i class="fa-solid fa-square-envelope"></i>
             </div>
 
         </div>
+        <div id="second-section">
+            <span class="title">Experience</span>
+            <ul class="experience-list">
+                <li class="experience-item">
+                    <span class="time-period-label">2021 - Present</span>
+                    <p class="experience-label">Web developer at CreamTeam GmbH</p>
+                </li>
+                <li class="experience-item">
+                    <span class="time-period-label">2019 (4 months)</span>
+                    <p class="experience-label">Intern at ASTech Ireland</p>
+                </li>
+            </ul>
+        </div>
+        <div id="third-section">
+            <span class="title">Technologies</span>
+            <ul class="technologies-list">
+                <li class="technologies-item">Angular</li>
+                <li class="technologies-item">E2E testing with Cypress</li>
+                <li class="technologies-item">Page Object pattern</li>
+                <li class="technologies-item">Spring Boot</li>
+                <li class="technologies-item">RXJS</li>
+                <li class="technologies-item">Agile methodologies</li>
+                <li class="technologies-item">Git workflow</li>
+
+            </ul>
+        </div>
+        <div id="fourth-section">
+            <span class="title">About me</span>
+            <ul class="technologies-list">
+                <li class="technologies-item">Angular</li>
+                <li class="technologies-item">E2E testing with Cypress</li>
+                <li class="technologies-item">Page Object pattern</li>
+                <li class="technologies-item">Spring Boot</li>
+                <li class="technologies-item">RXJS</li>
+                <li class="technologies-item">Agile methodologies</li>
+                <li class="technologies-item">Git workflow</li>
+
+            </ul>
+        </div>
     </div>
     <script type="module"
-        src="/main.js"></script>
+        src="main.js"></script>
     <script src="https://kit.fontawesome.com/c0cdd1a9e1.js"
         crossorigin="anonymous"></script>
 </body>

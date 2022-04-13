@@ -2,6 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Nunito:wght@400;600&display=swap');
 
+@font-face {
+  font-family: "Palindrome";
+  src: url('./fonts/PalindromeExpandedSSK_Bold.woff');
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -20,166 +25,109 @@ a, a:hover, a:focus, a:active {
   color: inherit;
 }
 
-.home-container {
-  display: flex;
-  flex-flow: column;
-  min-height: 100vh;
-}
+@media (min-width:320px) {
+  body {
+    background-color: #626DD3;
+  }
 
-.top-section {
-  position: relative;
-  width: 100vw;
-  flex: 0 1 470px;
-  background-image: linear-gradient(45deg, #FDAF75, #F24A72);
+  .main-container {
+    width: 50%;
+    margin: auto;
+    margin-top: 40vh;
+    text-align: center;
+    color: rgb(17, 17, 17);
+  }
 
-}
+  .name-title {
+    font-family: 'Palindrome';
+    font-size: 40px;
+  }
 
-.bottom-section {
-  position: relative;
-  width: 100vw;
-  flex: 1 1 auto;
-  background-color: rgb(233, 233, 233);
-  z-index: 20;
-  padding-bottom: 150px;
-}
+  .sub-title {
+    font-family: 'Nunito';
+    font-size: 25px;
+  }
 
-.home-name-title {
-  position: absolute;
-  font-family: 'Roboto Mono';
-}
+  .dot-line-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
 
-.about-section-title {
-  font-family: 'Roboto Mono';
+  .circle {
+    background-color: rgb(17, 17, 17);
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+  }
 
-}
+  .icon-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 30px !important;
+    margin-top: 10px;
+  }
 
-.first-name {
-  bottom: 10px;
-  left: 20px;
-  font-size: 80px;
-}
+  #second-section {
+    background-color: #cf62d3;
+    position: absolute;
+    width: 100vw;
+    height: 50vh;
+    top: 100vh;
+    box-sizing: border-box;
+    padding: 35px;
+  }
 
-.second-name {
-  top: 10px;
-  left: 20px;
-  font-size: 80px;
-}
+  .title {
+    font-family: 'Palindrome';
+    font-size: 20px;
+  }
 
-.subtext {
-  right: 20px;
-  bottom: 10px;
-  font-size: 40px;
-  z-index: 12;
-}
+  .experience-list {
+    margin-top: 20px;
+  }
 
-.circle {
-  border-radius: 50%;
-  position: fixed;
-}
+  .time-period-label {
+    font-family: 'Nunito';
+    font-weight: bolder;
+  }
 
-#big-circle {
-  width: 900px;
-  height: 900px;
-  background: pink;
-  margin-top: 35vh;
-  right: -15vw;
-  z-index: 10;
-}
+  .experience-label {
+    font-family: 'Nunito';
+  }
 
-#medium-circle {
-  width: 400px;
-  height: 400px;
-  background: lightgrey;
-  margin-top: 30vh;
-  right: 10vw;
-  z-index: 11;
-}
+  .experience-item:not(:first-child) {
+    margin-top: 10px;
+  }
 
-#small-circle {
-  width: 200px;
-  height: 200px;
-  background: #333C83;
-  margin-top: 30vh;
-  right: 5vw;
-  z-index: 8;
-}
+  #third-section {
+    background-color: #62d36b;
+    position: absolute;
+    width: 100vw;
+    height: 50vh;
+    top: 150vh;
+    box-sizing: border-box;
+    padding: 35px;
+  }
 
-.button-section {
-  width: 200px;
-  padding: 15px;
-  margin-right: 35px;
-  float: right;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
+  .technologies-list {
+    margin-top: 20px;
+  }
 
-.icon {
-  font-size: 30px;
-}
+  .technologies-item:not(:first-child) {
+    margin-top: 10px;
+    font-family: 'Nunito';
+  }
 
-.icon:hover {
-  cursor: pointer;
-}
-
-.dark-section {
-  height: 100vh;
-  padding: 20px;
-  margin-top: 400px;
-  color: white;
-}
-
-/*Terminal*/
-.terminal-container {
-  border: 2px solid white;
-  width: 750px;
-  height: 450px;
-  margin-left: 50px;
-  margin-top: 50px;
-  display: flex;
-  flex-direction: column;
-}
-
-.terminal-header {
-  flex: 1;
-  background-color: whitesmoke;
-}
-
-.dot {
-  height: 20px;
-  width: 20px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-}
-
-.dots-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 90px;
-  float: right;
-  padding: 5px;
-}
-
-.terminal-content {
-  height: 100%;
-  padding: 10px;
-  font-family: 'Cutive Mono';
-}
-
-.sidebar {
-  width: 100px;
-  height: 100%;
-  background-color: rgb(228, 228, 228);
-  display: flex;
-  flex-direction: column;
-  padding: 5px;
-  justify-content: space-between;
-}
-
-.text-item {
-  height: 15px;
-  border-radius: 20px;
-  background-color: grey;
+  #fourth-section {
+    background-color: #d36262;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 200vh;
+    box-sizing: border-box;
+    padding: 35px;
+  }
 }
