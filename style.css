@@ -211,10 +211,12 @@ a, a:hover, a:focus, a:active {
 
   #abstract-blob {
     position: absolute;
-    transform: translate3d(60%, 45%, 0);
+    transform: translate3d(73%, 10%, 0);
   }
 
   #blob {
     fill: red;
+    width: 800px;
+    height: 800px;
   }
 }
