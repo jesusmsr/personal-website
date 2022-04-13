@@ -7,6 +7,13 @@
   src: url('./fonts/PalindromeExpandedSSK_Bold.woff');
 }
 
+:root {
+  --mainBackground: #E6BA95;
+  --thirdSectionBg: #FAFDD6;
+  --secondSectionBg: #FAFDD6;
+  --fourthSectionBg: #A2B38B;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -27,7 +34,7 @@ a, a:hover, a:focus, a:active {
 
 @media (min-width:320px) {
   body {
-    background-color: #626DD3;
+    background: var(--mainBackground);
   }
 
   .main-container {
@@ -72,7 +79,7 @@ a, a:hover, a:focus, a:active {
   }
 
   #second-section {
-    background-color: #cf62d3;
+    background: var(--secondSectionBg);
     width: 100vw;
     height: 50vh;
     box-sizing: border-box;
@@ -103,7 +110,7 @@ a, a:hover, a:focus, a:active {
   }
 
   #third-section {
-    background-color: #62d36b;
+    background: var(--thirdSectionBg);
     width: 100vw;
     height: 50vh;
     box-sizing: border-box;
@@ -112,9 +119,6 @@ a, a:hover, a:focus, a:active {
 
   .technologies-list {
     margin-top: 20px;
-  }
-
-  .technologies-item {
     font-family: 'Nunito';
   }
 
@@ -123,7 +127,7 @@ a, a:hover, a:focus, a:active {
   }
 
   #fourth-section {
-    background-color: #d36262;
+    background: var(--fourthSectionBg);
     position: absolute;
     width: 100vw;
     height: 100vh;
@@ -143,7 +147,6 @@ a, a:hover, a:focus, a:active {
 @media (min-width:1281px) {
   #app {
     scroll-snap-type: y mandatory;
-
   }
 
   #second-section {
