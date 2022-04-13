@@ -17,6 +17,7 @@ $(document).ready(function () {
     $('.bottom-section').css('background-color', `rgb(${value}, ${value}, ${value})`);
 
     //Parallax 
+    console.log('asd');
     const parallaxTarget = document.querySelectorAll('.scroll');
     var scrolled = window.pageYOffset;
 
