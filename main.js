@@ -35,11 +35,24 @@ $(document).ready(function () {
   const tween3 = KUTE.fromTo(
     '#blob1',
     { path: '#blob3' },
-    { path: '#blob2' },
-    { easing: "easingCubicInOut", duration: 3000 }
+    { path: '#blob4' },
+    { easing: "easingCubicInOut", duration: 1750 }
   )
 
   const tween4 = KUTE.fromTo(
+    '#blob1',
+    { path: '#blob4' },
+    { path: '#blob5' },
+    { easing: "easingCubicInOut", duration: 2000 }
+  )
+
+  const tween5 = KUTE.fromTo(
+    '#blob1',
+    { path: '#blob5' },
+    { path: '#blob2' },
+    { easing: "easingCubicInOut", duration: 1750 }
+  )
+  const tween6 = KUTE.fromTo(
     '#blob1',
     { path: '#blob2' },
     { path: '#blob1' },
@@ -49,7 +62,9 @@ $(document).ready(function () {
   tween.chain(tween2);
   tween2.chain(tween3);
   tween3.chain(tween4);
-  tween4.chain(tween);
+  tween4.chain(tween5);
+  tween5.chain(tween6);
+  tween6.chain(tween);
   tween.start();
 
 });
