@@ -9,14 +9,17 @@ $(document).ready(function () {
 
   function parallax(element, distance, speed) {
     const item = document.querySelector(element);
-
-
     item.style.transform = `translateY(${distance * speed}px)`;
   }
 
-  window.addEventListener("scroll", function (e) {
-    parallax('.scroll', window.scrollY, 1);
-  });
+  if (window.screen.width >= 390) {
+    const item = document.querySelector('.main-container').style.position = 'fixed';
+  } else {
+    window.addEventListener("scroll", function (e) {
+      parallax('.scroll', window.scrollY, 1);
+    });
+  }
+
 
 });
 
