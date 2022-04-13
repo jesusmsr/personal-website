@@ -12,7 +12,7 @@ $(document).ready(function () {
     item.style.transform = `translateY(${distance * speed}px)`;
   }
 
-  if (window.screen.width >= 390) {
+  if (window.screen.width >= 320) {
     const item = document.querySelector('.main-container').style.position = 'fixed';
   } else {
     window.addEventListener("scroll", function (e) {
