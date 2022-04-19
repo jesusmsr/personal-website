@@ -2,7 +2,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Nunito:wght@400;600&display=swap');
 
+@font-face {
+  font-family: "Palindrome";
+  src: url('./fonts/PalindromeExpandedSSK_Bold.woff');
+}
 
+:root {
+  --mainBackground: #E6BA95;
+  --thirdSectionBg: #FAFDD6;
+  --secondSectionBg: #FAFDD6;
+  --fourthSectionBg: #A2B38B;
+}
 
 * {
   padding: 0;
@@ -25,183 +35,200 @@ a:active {
   color: inherit;
 }
 
-.home-container {
-  display: flex;
-  flex-flow: column;
-  min-height: 100vh;
-}
-
-.top-section {
-  position: relative;
-  width: 100vw;
-  flex: 0 1 470px;
-  background-image: linear-gradient(45deg, #FDAF75, #F24A72);
-
-}
-
-.bottom-section {
-  position: relative;
-  width: 100vw;
-  flex: 1 1 auto;
-  background-color: rgb(233, 233, 233);
-  z-index: 20;
-  padding-bottom: 150px;
-}
-
-.home-name-title {
-  position: absolute;
-  font-family: 'Roboto Mono';
-}
-
-.about-section-title {
-  font-family: 'Roboto Mono';
-
-}
-
-.first-name {
-  bottom: 10px;
-  left: 20px;
-  font-size: 80px;
-}
-
-.second-name {
-  top: 10px;
-  left: 20px;
-  font-size: 80px;
-}
-
-.subtext {
-  right: 20px;
-  bottom: 10px;
-  font-size: 40px;
-  z-index: 12;
-}
-
-.circle {
-  border-radius: 50%;
-  position: fixed;
-}
-
-#big-circle {
-  width: 900px;
-  height: 900px;
-  background: pink;
-  margin-top: 35vh;
-  right: -15vw;
-  z-index: 10;
-}
-
-#medium-circle {
-  width: 400px;
-  height: 400px;
-  background: lightgrey;
-  margin-top: 30vh;
-  right: 10vw;
-  z-index: 11;
-}
-
-#small-circle {
-  width: 200px;
-  height: 200px;
-  background: #333C83;
-  margin-top: 30vh;
-  right: 5vw;
-  z-index: 8;
-}
-
-.button-section {
-  width: 200px;
-  padding: 15px;
-  margin-right: 35px;
-  float: right;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.icon {
-  font-size: 30px;
-}
-
-.icon:hover {
-  cursor: pointer;
-}
-
-.dark-section {
-  height: 100vh;
-  padding: 20px;
-  margin-top: 400px;
-  color: white;
-}
-
-/*Terminal*/
-.terminal-container {
-  border: 2px solid white;
-  width: 750px;
-  height: 450px;
-  margin-left: 50px;
-  margin-top: 50px;
-  display: flex;
-  flex-direction: column;
-}
-
-.terminal-header {
-  flex: 1;
-  background-color: whitesmoke;
-}
-
-.dot {
-  height: 20px;
-  width: 20px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-}
-
-.dots-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 90px;
-  float: right;
-  padding: 5px;
-}
-
-.terminal-content {
-  height: 100%;
-  padding: 10px;
-  font-family: 'Cutive Mono';
-}
-
-.sidebar {
-  width: 100px;
-  height: 100%;
-  background-color: rgb(228, 228, 228);
-  display: flex;
-  flex-direction: column;
-  padding: 5px;
-  justify-content: space-between;
-}
-
-.text-item {
-  height: 15px;
-  border-radius: 20px;
-  background-color: grey;
-}
-
 @media (min-width:320px) {
-  .first-name {
-    font-size: 50px;
-    z-index: 50;
+  body {
+    background: var(--mainBackground);
   }
 
-  .second-name {
-    font-size: 50px;
+  .main-container {
+    width: 50%;
+    margin: auto;
+    margin-top: 40vh;
+    transform: translateX(50%);
+    text-align: center;
+    color: rgb(17, 17, 17);
   }
 
-  .subtext {
-    transform: rotate(-90deg);
-    right: -130px;
-    bottom: 150px;
+  .name-title {
+    font-family: 'Palindrome';
+    font-size: 40px;
+  }
+
+  .sub-title {
+    font-family: 'Nunito';
+    font-size: 25px;
+  }
+
+  .dot-line-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+
+  .circle {
+    background-color: rgb(17, 17, 17);
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+  }
+
+  .icon-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 30px !important;
+    margin-top: 10px;
+  }
+
+  #second-section {
+    background: var(--secondSectionBg);
+    width: 100vw;
+    height: 50vh;
+    box-sizing: border-box;
+    padding: 35px;
+    scroll-snap-align: start;
+  }
+
+  .title {
+    font-family: 'Palindrome';
+    font-size: 20px;
+  }
+
+  .experience-list {
+    margin-top: 20px;
+  }
+
+  .time-period-label {
+    font-family: 'Nunito';
+    font-weight: bolder;
+  }
+
+  .experience-label {
+    font-family: 'Nunito';
+  }
+
+  .experience-item:not(:first-child) {
+    margin-top: 10px;
+  }
+
+  #third-section {
+    background: var(--thirdSectionBg);
+    width: 100vw;
+    height: 50vh;
+    box-sizing: border-box;
+    padding: 35px;
+  }
+
+  .technologies-list {
+    margin-top: 20px;
+    font-family: 'Nunito';
+  }
+
+  .technologies-item:not(:first-child) {
+    margin-top: 10px;
+  }
+
+  #fourth-section {
+    background: var(--fourthSectionBg);
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 200vh;
+    box-sizing: border-box;
+    padding: 35px;
+  }
+
+  #sections-holder {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100vh;
+  }
+
+  #abstract-blob {
+    position: absolute;
+    width: 90vw;
+    height: 90vh;
+    transform: translate3d(10%, 5%, 0);
+  }
+
+  #blob {
+    display: block;
+    fill: red;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+  }
+}
+
+@media (min-width:1281px) {
+  #app {
+    scroll-snap-type: y mandatory;
+  }
+
+  #second-section {
+    width: 50vw;
+    position: relative;
+  }
+
+  #third-section {
+    width: 50vw;
+    position: relative;
+  }
+
+  .main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .name-title {
+    font-size: 68px;
+    mix-blend-mode: difference;
+  }
+
+  .dot-line-container {
+    width: 450px;
+    margin: auto;
+    margin-top: 25px;
+  }
+
+  .icon-container {
+    margin: auto;
+    margin-top: 25px;
+    width: 250px;
+  }
+
+  .main-container {
+    margin-top: 37vh;
+  }
+
+  #sections-holder {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    top: 100vh;
+  }
+
+  #fourth-section {
+    top: 150vh;
+    height: 50vh;
+  }
+
+  #abstract-blob {
+    transform: translate3d(50%, 35%, 0);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50vw;
+    height: 60vh;
+    z-index: -1;
+  }
+
+  #blob {
+    fill: red;
+    width: 100%;
+    height: 100%;
   }
 }
