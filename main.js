@@ -4,6 +4,11 @@ import KUTE from 'kute.js'
 
 $(document).ready(function () {
 
+  const sizes = {
+    width: window.innerWidth,
+    height: window.innerHeight
+  }
+
   var scene = new THREE.Scene();
   var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
@@ -11,18 +16,42 @@ $(document).ready(function () {
   renderer.setSize(window.innerWidth, window.innerHeight);
   document.body.appendChild(renderer.domElement);
 
-  var geometry = new THREE.BoxGeometry(1, 1, 1);
-  var material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-  var cube = new THREE.Mesh(geometry, material);
-  scene.add(cube);
+  // Geometry
+  var cubeGeometryBig = new THREE.BoxGeometry(50, 50, 50);
+  var cubeGeometryMedium = new THREE.BoxGeometry(10, 10, 10);
+  var cubeGeometrySmall = new THREE.BoxGeometry(50, 50, 50);
+  var points = [];
 
-  camera.position.z = 2;
+  // Materials
+  var greenMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+  var blackMaterial = new THREE.MeshBasicMaterial({ color: 0x000000 });
+  var lineMaterial = new THREE.LineBasicMaterial({ color: 0x0000ff });
+  points.push(new THREE.Vector3(- 10, 0, 0));
+  points.push(new THREE.Vector3(0, 10, 0));
+  points.push(new THREE.Vector3(10, 0, 0));
+
+  // Meshes
+  var cube = new THREE.Mesh(cubeGeometryBig, greenMaterial);
+  var cube2 = new THREE.Mesh(cubeGeometryMedium, blackMaterial);
+  var lineG = new THREE.BufferGeometry().setFromPoints(points);
+  var line = new THREE.Line(lineG, lineMaterial);
+
+  scene.add(cube);
+  scene.add(cube2);
+  scene.add(line);
+
+  cube.position.z = 0;
+  cube2.position.z = 50;
+  camera.position.z = 100;
 
   var animate = function () {
     requestAnimationFrame(animate);
 
     cube.rotation.x += 0.01;
     cube.rotation.y += 0.01;
+
+    cube2.rotation.x += 0.01;
+    cube2.rotation.y += 0.01;
 
     renderer.render(scene, camera);
   };
@@ -40,6 +69,20 @@ $(document).ready(function () {
     document.querySelector('.main-container').style.position = 'fixed';
     document.querySelector('.scroll').style.position = 'fixed';
   }
+
+  window.addEventListener('resize', () => {
+    // Update sizes
+    sizes.width = window.innerWidth
+    sizes.height = window.innerHeight
+
+    // Update camera
+    camera.aspect = sizes.width / sizes.height
+    camera.updateProjectionMatrix()
+
+    // Update renderer
+    renderer.setSize(sizes.width, sizes.height)
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+  })
 
   // const tween = KUTE.fromTo(
   //   '#blob1',
