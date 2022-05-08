@@ -1,137 +1,123 @@
 import $ from 'jquery';
-import AOS from 'aos';
-import KUTE from 'kute.js'
+import * as THREE from 'three';
+import { Camera } from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
-$(document).ready(function () {
+const canvas = document.querySelector('canvas.webgl');
 
-  const sizes = {
+// Textures
+const textureLoader = new THREE.TextureLoader();
+const normal1Texture = textureLoader.load('./assets/textures/normal2.png');
+
+// Scene
+const scene = new THREE.Scene();
+
+// Objects
+const sphereGeometry = new THREE.SphereBufferGeometry(1, 64, 64);
+
+// Materials
+
+const material = new THREE.MeshStandardMaterial();
+material.metalness = 0.7;
+material.roughness = 0.2;
+material.color = new THREE.Color(0x000000);
+material.normalMap = normal1Texture;
+
+// Mesh 
+const sphere = new THREE.Mesh(sphereGeometry, material);
+scene.add(sphere);
+
+const sizes = {
     width: window.innerWidth,
     height: window.innerHeight
-  }
+};
 
-  var scene = new THREE.Scene();
-  var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+// Light
+const light = new THREE.PointLight(0xffffff, .5);
+light.position.x = 1.5;
+light.position.y = 0;
+light.position.z = 5;
+scene.add(light);
 
-  var renderer = new THREE.WebGLRenderer();
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  document.body.appendChild(renderer.domElement);
+const light2 = new THREE.PointLight(0xff0000, 6);
+light2.position.set(-2, 1.5, 6);
+scene.add(light2);
 
-  // Geometry
-  var cubeGeometryBig = new THREE.BoxGeometry(50, 50, 50);
-  var cubeGeometryMedium = new THREE.BoxGeometry(10, 10, 10);
-  var cubeGeometrySmall = new THREE.BoxGeometry(50, 50, 50);
-  var points = [];
+const light3 = new THREE.PointLight(0xff00ff, 2);
+light3.position.set(0, -2, 5);
+scene.add(light3);
 
-  // Materials
-  var greenMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-  var blackMaterial = new THREE.MeshBasicMaterial({ color: 0x000000 });
-  var lineMaterial = new THREE.LineBasicMaterial({ color: 0x0000ff });
-  points.push(new THREE.Vector3(- 10, 0, 0));
-  points.push(new THREE.Vector3(0, 10, 0));
-  points.push(new THREE.Vector3(10, 0, 0));
-
-  // Meshes
-  var cube = new THREE.Mesh(cubeGeometryBig, greenMaterial);
-  var cube2 = new THREE.Mesh(cubeGeometryMedium, blackMaterial);
-  var lineG = new THREE.BufferGeometry().setFromPoints(points);
-  var line = new THREE.Line(lineG, lineMaterial);
-
-  scene.add(cube);
-  scene.add(cube2);
-  scene.add(line);
-
-  cube.position.z = 0;
-  cube2.position.z = 50;
-  camera.position.z = 100;
-
-  var animate = function () {
-    requestAnimationFrame(animate);
-
-    cube.rotation.x += 0.01;
-    cube.rotation.y += 0.01;
-
-    cube2.rotation.x += 0.01;
-    cube2.rotation.y += 0.01;
-
-    renderer.render(scene, camera);
-  };
-
-  animate();
-
-  AOS.init();
-
-  function parallax(element, distance, speed) {
-    const item = document.querySelector(element);
-    item.style.transform = `translateY(${distance * speed}px)`;
-  }
-
-  if (window.screen.width >= 320) {
-    document.querySelector('.main-container').style.position = 'fixed';
-    document.querySelector('.scroll').style.position = 'fixed';
-  }
-
-  window.addEventListener('resize', () => {
-    // Update sizes
-    sizes.width = window.innerWidth
-    sizes.height = window.innerHeight
+window.addEventListener('resize', () => {
+    // Update sizes 
+    sizes.width = window.innerWidth;
+    sizes.height = window.innerHeight;
 
     // Update camera
-    camera.aspect = sizes.width / sizes.height
-    camera.updateProjectionMatrix()
+    camera.aspect = sizes.width / sizes.height;
+    camera.updateProjectionMatrix();
 
     // Update renderer
-    renderer.setSize(sizes.width, sizes.height)
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-  })
+    renderer.setSize(sizes.width, sizes.height);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+})
 
-  // const tween = KUTE.fromTo(
-  //   '#blob1',
-  //   { path: '#blob1' },
-  //   { path: '#blob2' },
-  //   { easing: "easingCubicInOut", duration: 1500 }
-  // )
+// Camera
+const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100);
+camera.position.x = 0;
+camera.position.y = 0;
+camera.position.z = 2;
+scene.add(camera);
 
-  // const tween2 = KUTE.fromTo(
-  //   '#blob1',
-  //   { path: '#blob2' },
-  //   { path: '#blob3' },
-  //   { easing: "easingCubicInOut", duration: 2000 }
-  // )
+// Renderer
+const renderer = new THREE.WebGLRenderer({
+    canvas: canvas,
+    alpha: true
+})
+renderer.setSize(sizes.width, sizes.height);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-  // const tween3 = KUTE.fromTo(
-  //   '#blob1',
-  //   { path: '#blob3' },
-  //   { path: '#blob4' },
-  //   { easing: "easingCubicInOut", duration: 1750 }
-  // )
+// Animate
+document.addEventListener('mousemove', onDocumentMouseMove);
 
-  // const tween4 = KUTE.fromTo(
-  //   '#blob1',
-  //   { path: '#blob4' },
-  //   { path: '#blob5' },
-  //   { easing: "easingCubicInOut", duration: 2000 }
-  // )
+let mouseX = 0;
+let mouseY = 0;
 
-  // const tween5 = KUTE.fromTo(
-  //   '#blob1',
-  //   { path: '#blob5' },
-  //   { path: '#blob2' },
-  //   { easing: "easingCubicInOut", duration: 1750 }
-  // )
-  // const tween6 = KUTE.fromTo(
-  //   '#blob1',
-  //   { path: '#blob2' },
-  //   { path: '#blob1' },
-  //   { easing: "easingCubicInOut", duration: 2000 }
-  // )
+let targetX = 0;
+let targetY = 0;
 
-  // tween.chain(tween2);
-  // tween2.chain(tween3);
-  // tween3.chain(tween4);
-  // tween4.chain(tween5);
-  // tween5.chain(tween6);
-  // tween6.chain(tween);
-  // tween.start();
+const windowHalfX = window.innerWidth / 2;
+const windowHalfY = window.innerHeight / 2;
 
-});
+function onDocumentMouseMove(event) {
+    mouseX = (event.clientX - windowHalfX);
+    mouseY = (event.clientY - windowHalfY);
+}
+
+const clock = new THREE.Clock();
+
+const tick = () => {
+
+    targetX = mouseX * .001;
+    targetY = mouseY * .001;
+
+    const elapsedTime = clock.getElapsedTime();
+
+    // Update Objects
+    sphere.rotation.y = .5 * elapsedTime;
+    //sphere.rotation.x = .5 * elapsedTime;
+    //sphere.rotation.z = -0.15 * elapsedTime;
+
+    sphere.rotation.y += .5 * (targetX - sphere.rotation.y);
+    sphere.rotation.x += .05 * (targetY - sphere.rotation.x);
+    sphere.rotation.z += -.05 * (targetY - sphere.rotation.x);
+
+    // Update orbital controls
+
+    // Render 
+    renderer.render(scene, camera);
+
+    window.requestAnimationFrame(tick);
+}
+
+tick();
 
